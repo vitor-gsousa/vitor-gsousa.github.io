@@ -97,6 +97,11 @@
                     <button type="submit">Enviar</button>
                 </form>
             </div>
+            <script>window.onbeforeunload = () => {
+              for(const form of document.getElementsByTagName('form')) {
+                form.reset();
+              }
+            }</script>
         </section>
 
     </main>
