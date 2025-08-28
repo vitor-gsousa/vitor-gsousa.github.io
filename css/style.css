@@ -172,12 +172,22 @@ nav a.active::after {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1.2rem;
+    color: var(--text-primary); /* Adicionado para garantir contraste */
 }
 
 .theme-toggle:hover {
     border-color: var(--primary-color);
     transform: scale(1.05);
 }
+
+/* Força cor específica dos ícones para melhor contraste */
+.theme-toggle i.fa-sun {
+    color: #f59e0b; /* Laranja dourado para o sol */
+}
+
+/*.theme-toggle i.fa-moon {
+    color: #6366f1; 
+}*/
 
 /* Mobile Menu */
 .mobile-menu-toggle {
