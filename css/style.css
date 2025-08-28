@@ -172,7 +172,7 @@ nav a.active::after {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1.2rem;
-    color: var(--text-primary); /* Adicionado para garantir contraste */
+    color: var(--text-primary);
 }
 
 .theme-toggle:hover {
@@ -180,14 +180,9 @@ nav a.active::after {
     transform: scale(1.05);
 }
 
-/* Força cor específica dos ícones para melhor contraste */
 .theme-toggle i.fa-sun {
-    color: #f59e0b; /* Laranja dourado para o sol */
+    color: #f59e0b;
 }
-
-/*.theme-toggle i.fa-moon {
-    color: #6366f1; 
-}*/
 
 /* Mobile Menu */
 .mobile-menu-toggle {
@@ -353,7 +348,6 @@ h2 {
     h2 {
         margin-top: 0;
         margin-bottom: 2rem;
-        padding-top: 1rem;
     }
 }
 
