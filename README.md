@@ -62,16 +62,6 @@ O site foi desenvolvido com abordagem mobile-first e é totalmente responsivo:
 }
 ```
 
-## 📊 Performance
-
-- ✅ PageSpeed Insights: [Score]
-- ✅ Lighthouse Score: [Score]
-- ✅ Otimização de imagens
-- ✅ Minificação de CSS/JS
-- ✅ Cache otimizado
-
 ## 📄 Licença
 
 Este projeto está sob a licença [MIT](LICENSE) - veja o arquivo LICENSE para detalhes.
-
-*Última atualização: [Data]*
