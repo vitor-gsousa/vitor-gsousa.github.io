@@ -1,4 +1,4 @@
-# Vítor G. Sousa - Portfolio Pessoal
+# Vítor Sousa - Portfolio Pessoal
 
 [![Deploy Status](https://img.shields.io/badge/status-live-brightgreen)](https://vitor-gsousa.github.io)
 [![GitHub Pages](https://img.shields.io/badge/hosted%20on-GitHub%20Pages-blue)](https://pages.github.com/)
