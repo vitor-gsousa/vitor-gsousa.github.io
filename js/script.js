@@ -42,7 +42,8 @@ document.querySelectorAll('.mobile-nav a').forEach(link => {
 
 // Typing Effect
 const typingElement = document.querySelector('.typing-text');
-const text = 'Olá! Sou o Vítor, Especialista em Suporte TI';
+const text = typingElement.textContent;
+typingElement.textContent = '';
 let index = 0;
 
 function typeText() {
