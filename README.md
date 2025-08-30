@@ -50,18 +50,6 @@ O site foi desenvolvido com abordagem mobile-first e é totalmente responsivo:
 - 📊 **Tablet:** 768px - 1024px  
 - 💻 **Desktop:** > 1024px
 
-## 🎨 Paleta de Cores
-
-```css
-:root {
-  --primary-color: #your-color;
-  --secondary-color: #your-color;
-  --accent-color: #your-color;
-  --background-color: #your-color;
-  --text-color: #your-color;
-}
-```
-
 ## 📄 Licença
 
 Este projeto está sob a licença [MIT](LICENSE) - veja o arquivo LICENSE para detalhes.
