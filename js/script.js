@@ -52,13 +52,6 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 
 initTheme();
 
-// Load saved theme
-const savedTheme = localStorage.getItem('theme') || 'light';
-document.documentElement.setAttribute('data-theme', savedTheme);
-themeIcon.forEach(icon => {
-    icon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-});
-
 // Mobile Menu Toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const mobileNav = document.querySelector('.mobile-nav');
