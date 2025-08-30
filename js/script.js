@@ -1,27 +1,56 @@
 // Theme Toggle
-const themeToggle = document.querySelectorAll('.theme-toggle');
-const themeIcon = document.querySelectorAll('.theme-toggle i');
+function getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
 
-themeToggle.forEach((toggle, index) => {
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    const themeIcons = document.querySelectorAll('.theme-toggle i');
+    themeIcons.forEach(icon => {
+        icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    });
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) {
+        metaTheme.content = theme === 'dark' ? '#111827' : '#6366f1';
+    }
+}
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const systemTheme = getSystemTheme();
+    
+    const themeToUse = savedTheme || systemTheme;
+    
+    applyTheme(themeToUse);
+    
+    if (!savedTheme) {
+        document.documentElement.removeAttribute('data-theme');
+    }
+}
+
+const themeToggle = document.querySelectorAll('.theme-toggle');
+themeToggle.forEach(toggle => {
     toggle.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        const systemTheme = getSystemTheme();
         
-        document.documentElement.setAttribute('data-theme', newTheme);
+        const activeTheme = currentTheme || systemTheme;
+        const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+        
+        applyTheme(newTheme);
         localStorage.setItem('theme', newTheme);
-        
-        themeIcon.forEach(icon => {
-            icon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-        });
     });
 });
 
-// Load saved theme
-const savedTheme = localStorage.getItem('theme') || 'light';
-document.documentElement.setAttribute('data-theme', savedTheme);
-themeIcon.forEach(icon => {
-    icon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+    }
 });
+
+initTheme();
 
 // Mobile Menu Toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
