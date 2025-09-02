@@ -173,9 +173,54 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form Reset on Reload
-window.addEventListener('beforeunload', () => {
-    document.querySelectorAll('form').forEach(form => form.reset());
+// Form submission
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('#contact form');
+  if (!form) return;
+
+  const msg = document.createElement('div');
+  msg.setAttribute('aria-live', 'polite');
+  msg.style.marginTop = '1rem';
+  form.appendChild(msg);
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    msg.textContent = '';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+    const action = form.getAttribute('action') || window.location.href;
+    try {
+      const res = await fetch(action, {
+        method: form.method || 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (res.ok) {
+        msg.style.color = 'green';
+        msg.textContent = 'Mensagem enviada! Obrigado.';
+        form.reset();
+      } else {
+        let errText = 'Ocorreu um erro ao enviar. Tenta novamente.';
+        try {
+          const data = await res.json();
+          if (data && data.error) errText = data.error;
+        } catch (_) {}
+        msg.style.color = 'crimson';
+        msg.textContent = errText;
+      }
+    } catch (err) {
+      msg.style.color = 'crimson';
+      msg.textContent = 'Não foi possível contactar o servidor. Verifica a ligação.';
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
 });
 
 // Event Listeners
