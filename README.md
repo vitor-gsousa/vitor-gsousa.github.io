@@ -20,10 +20,10 @@ Este é o meu site pessoal e portefólio profissional, onde apresento os meus pr
 - 🎨 Interface moderna e intuitiva
 - ⚡ Performance otimizada
 - 🌙 Modo escuro/claro
-- 📧 Formulário de contato funcional
+- 📧 Formulário de contacto funcional
 - 🔗 Links para redes sociais e projetos
 
-## 📝 Sesções do Site
+## 📝 Secções do Site
 
 - **Home:** Apresentação pessoal e resumo profissional
 - **Sobre:** Informações detalhadas sobre formação e experiência
