@@ -79,11 +79,11 @@ function typeText() {
     if (index < text.length) {
         typingElement.textContent += text.charAt(index);
         index++;
-        setTimeout(typeText, 100);
+        setTimeout(typeText, 50);
     }
 }
 
-setTimeout(typeText, 1000);
+setTimeout(typeText, 500);
 
 // Progress Bar
 function updateProgressBar() {
